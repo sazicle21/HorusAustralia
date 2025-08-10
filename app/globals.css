@@ -81,11 +81,3 @@ html { scroll-behavior: smooth; }
   .spline-canvas { display: none; }
   .spline-poster { display: block; }
 }
-/* Hide Spline watermark — TESTING ONLY, NOT FOR PUBLIC DEPLOYMENT */
-.spline-shell a[href*="spline.design"],
-.spline-shell [class*="Watermark"],
-.spline-shell [class*="watermark"] {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-}
