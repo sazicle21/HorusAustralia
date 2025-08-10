@@ -1,0 +1,53 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+html, body { background: #0F1115; }
+
+/* Beam animation */
+.beam-wrap { --r: 20px; position: relative; border-radius: var(--r); }
+.beam-clip { position:absolute; inset:0; border-radius: var(--r); overflow: hidden; pointer-events: none; }
+.beam-surface { position:relative; z-index:1; border-radius: var(--r); }
+.beam-svg { width:100%; height:100%; display:block; }
+.beam-rect { fill:none; stroke:url(#copper-stroke-global); stroke-width:1.5; stroke-dasharray:0; stroke-dashoffset:0; }
+.beam-wrap:hover .beam-rect { animation: beam 1s linear forwards; filter: drop-shadow(0 0 6px rgba(245,158,11,0.35)); }
+@keyframes beam { to { stroke-dashoffset: 0; } }
+@media (prefers-reduced-motion: reduce) { .beam-wrap:hover .beam-rect { animation: none; stroke-dashoffset: 0; } }
+
+/* Spline embed */
+.spline-shell {
+  position: relative;
+  border-radius: 1rem;            /* match card rounding */
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: linear-gradient(180deg, #12151C, #0F1115);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  padding: 8px;                   /* thin frame */
+}
+
+.spline-frame {
+  width: 100%;
+  aspect-ratio: 4 / 3;            /* responsive height */
+  border: 0;
+  display: block;
+  border-radius: 0.75rem;
+}
+
+/* Reduced motion: hide live scene, show a poster image instead */
+.spline-poster {
+  display: none;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 0.75rem;
+}
+@media (prefers-reduced-motion: reduce) {
+  .spline-frame { display: none; }
+  .spline-poster { display: block; }
+}
+
+/* Smooth anchor scroll + offset so sections don't hide under sticky headers (we removed header but still useful) */
+html { scroll-behavior: smooth; }
+:target { scroll-margin-top: 80px; }
