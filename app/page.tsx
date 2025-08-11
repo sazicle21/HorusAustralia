@@ -1,6 +1,6 @@
 // app/page.tsx
 "use client";
-
+import DarkVeil from "@/components/DarkVeil";
 import Beam from "@/components/Beam";
 import HeroR3F from "@/components/HeroR3F"; // ⬅ new
 
