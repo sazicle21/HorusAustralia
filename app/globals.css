@@ -81,3 +81,30 @@ html { scroll-behavior: smooth; }
   .spline-canvas { display: none; }
   .spline-poster { display: block; }
 }
+.background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* keeps it behind all content */
+}
+
+.darkveil-root {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2; /* behind everything else */
+  overflow: hidden;
+}
+
+.darkveil-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
