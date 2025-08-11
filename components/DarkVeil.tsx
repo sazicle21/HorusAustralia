@@ -128,10 +128,10 @@ export default function DarkVeil({
 
     // Full-viewport sizing (avoids the parent=0 issue)
     const resize = () => {
-      const w = window.innerWidth;
-      const h = window.innerHeight;
-      renderer.setSize(w * (resolutionScale || 1), h * (resolutionScale || 1));
-      (program.uniforms.uResolution as any).value.set(w, h);
+      const w = window.innerWidth, h = window.innerHeight;
+      renderer.dpr = Math.min(window.devicePixelRatio, 2) * (resolutionScale || 1);
+      renderer.setSize(w, h);
+      (program!.uniforms.uResolution as any).value.set(w, h);
     };
     window.addEventListener("resize", resize, { passive: true });
     resize();
