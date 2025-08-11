@@ -1,59 +1,45 @@
 // app/page.tsx
 "use client";
-import DarkVeil from "@/components/DarkVeil";
+
 import Beam from "@/components/Beam";
-import HeroR3F from "@/components/HeroR3F"; // ⬅ new
-
-
 
 export default function Home() {
   return (
     <div className="mx-auto max-w-7xl px-6">
-      {/* HERO */}
-      <section id="hero" className="py-14 md:py-20">
-        <div className="grid gap-10 md:grid-cols-2 items-center">
-          <div>
-            <h1 className="text-4xl md:text-6xl font-semibold tracking-tight text-white">
-              Distribution, without drag.
-            </h1>
-            <p className="mt-5 max-w-xl text-white/70 text-base md:text-lg">
-              Horus Australia sources, imports, and delivers critical goods—on time, with
-              compliance, at scale.
-            </p>
+      {/* HERO (single column) */}
+      <section id="hero" className="py-12 md:py-20">
+        <div className="max-w-3xl">
+          <h1 className="text-4xl md:text-6xl font-semibold tracking-tight text-white">
+            Distribution, without drag.
+          </h1>
+          <p className="mt-5 max-w-xl text-white/70 text-base md:text-lg">
+            Horus Australia sources, imports, and delivers critical goods—on time, with
+            compliance, at scale.
+          </p>
 
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <Beam radius={16}>
-                <a
-                  href="#contact"
-                  className="inline-block rounded-2xl bg-gradient-to-b from-[#12151C] to-[#0F1115] px-6 py-3 text-sm font-medium text-white hover:from-[#151922] hover:to-[#11151C]"
-                >
-                  Enquire Now
-                </a>
-              </Beam>
-              <Beam radius={16}>
-                <a
-                  href="#categories"
-                  className="inline-block rounded-2xl bg-gradient-to-b from-[#12151C] to-[#0F1115] px-6 py-3 text-sm font-medium text-white hover:from-[#151922] hover:to-[#11151C]"
-                >
-                  View Categories
-                </a>
-              </Beam>
-            </div>
-
-            <div className="mt-6 flex items-center gap-6 text-xs text-white/60">
-              <span>ISO 9001–aligned</span>
-              <span>99.4% OTIF</span>
-              <span>WA & nationwide</span>
-            </div>
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+            <Beam radius={16}>
+              <a
+                href="#contact"
+                className="inline-block rounded-2xl bg-gradient-to-b from-[#12151C] to-[#0F1115] px-6 py-3 text-sm font-medium text-white hover:from-[#151922] hover:to-[#11151C]"
+              >
+                Enquire Now
+              </a>
+            </Beam>
+            <Beam radius={16}>
+              <a
+                href="#categories"
+                className="inline-block rounded-2xl bg-gradient-to-b from-[#12151C] to-[#0F1115] px-6 py-3 text-sm font-medium text-white hover:from-[#151922] hover:to-[#11151C]"
+              >
+                View Categories
+              </a>
+            </Beam>
           </div>
 
-          {/* Spline embed — swap src with your Spline “Web embed” URL when you export it */}
-          <div className="spline-shell">
-            <HeroR3F />
-
-          
-            {/* Reduced motion fallback (optional) — replace with a poster image in /public/assets */}
-            <img className="spline-poster" src="/assets/hero-poster.jpg" alt="" />
+          <div className="mt-6 flex items-center gap-6 text-xs text-white/60">
+            <span>ISO 9001–aligned</span>
+            <span>99.4% OTIF</span>
+            <span>WA & nationwide</span>
           </div>
         </div>
       </section>
