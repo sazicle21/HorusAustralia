@@ -9,33 +9,31 @@ export default function Home() {
     <div className="mx-auto max-w-7xl px-6">
       {/* HERO (single column) */}
       <section id="hero" className="py-12 md:py-20">
-        <div className="max-w-3xl">
-          <h1 className="text-balance leading-tight">
-          <TrueFocus sentence="Distribution, without drag." animationDuration={0.6} pauseBetweenAnimations={0.7} borderColor="#e58f32ff" />
-          </h1>
-          <p className="mt-5 max-w-xl text-white/70 text-base md:text-lg">
-            Horus Australia sources, imports, and delivers critical goods—on time, with
-            compliance, at scale.
-          </p>
-
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-            <Beam radius={16}>
-              <a
-                href="#contact"
-                className="inline-block rounded-2xl bg-gradient-to-b from-[#12151C] to-[#0F1115] px-6 py-3 text-sm font-medium text-white hover:from-[#151922] hover:to-[#11151C]"
-              >
-                Enquire Now
-              </a>
-            </Beam>
-            <Beam radius={16}>
-              <a
-                href="#categories"
-                className="inline-block rounded-2xl bg-gradient-to-b from-[#12151C] to-[#0F1115] px-6 py-3 text-sm font-medium text-white hover:from-[#151922] hover:to-[#11151C]"
-              >
-                View Categories
-              </a>
-            </Beam>
-          </div>
+      <div className="max-w-3xl">
+        <h1 className="text-balance leading-tight">
+        <TrueFocus sentence="Distribution, without drag." animationDuration={1.0} pauseBetweenAnimations={0.8} borderColor="#e58f32ff" />
+         </h1>
+        <p className="mt-5 max-w-xl text-white/70 text-base md:text-lg">
+          Horus Australia sources, imports, and delivers critical goods—on time, with
+          compliance, at scale.
+        </p>
+         <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+          <Beam radius={16}>
+            <a
+              href="#contact"
+              className="inline-block rounded-2xl bg-gradient-to-b from-[#12151C] to-[#0F1115] px-6 py-3 text-sm font-medium text-white hover:from-[#151922] hover:to-[#11151C]"              >
+               Enquire Now
+            </a>
+          </Beam>
+          <Beam radius={16}>
+            <a
+              href="#categories"
+              className="inline-block rounded-2xl bg-gradient-to-b from-[#12151C] to-[#0F1115] px-6 py-3 text-sm font-medium text-white hover:from-[#151922] hover:to-[#11151C]"
+            >
+              View Categories
+            </a>
+           </Beam>
+        </div>
 
           <div className="mt-6 flex items-center gap-6 text-xs text-white/60">
             <span>ISO 9001–aligned</span>
