@@ -72,14 +72,19 @@ export default function TrueFocus({
         return (
           <span
             key={i}
-            ref={(el) => el && (wordRefs.current[i] = el)}
-            className={`focus-word ${isActive && !manualMode ? "active" : ""} ${manualMode ? "manual" : ""}`}
-            style={{ filter: isActive ? "blur(0px)" : `blur(${blurAmount}px)` }}
-            onMouseEnter={() => onEnter(i)}
-            onMouseLeave={onLeave}
-          >
+            ref={(el: HTMLSpanElement | null) => {
+                if (el) {
+                  wordRefs.current[i] = el;
+                }
+              }}
+              className={`focus-word ${isActive && !manualMode ? "active" : ""} ${manualMode ? "manual" : ""}`}
+              style={{ filter: isActive ? "blur(0px)" : `blur(${blurAmount}px)` }}
+              onMouseEnter={() => onEnter(i)}
+              onMouseLeave={onLeave}
+            >
             {word}
           </span>
+                  
         );
       })}
       <motion.div
