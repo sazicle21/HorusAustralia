@@ -150,16 +150,29 @@ html { overflow: clip; } /* keep hidden; change to 'visible' only while debuggin
   transition: filter 0.3s ease, color 0.3s ease;
 }
 .focus-word.active { filter: blur(0); }
+/* make the frame animate cleanly */
 .focus-frame {
-  position: absolute; top: 0; left: 0;
-  pointer-events: none; box-sizing: content-box; border: none;
+  position: absolute;
+  top: 0; left: 0;
+  pointer-events: none;
+  box-sizing: content-box;
+  border: none;
+  will-change: transform, width, height, opacity;
+  contain: layout paint;          /* isolates paint */
+  transform: translateZ(0);       /* GPU layer */
+  backface-visibility: hidden;
 }
+
+/* replace drop-shadow with box-shadow; remove filter */
 .corner {
-  position: absolute; width: 1rem; height: 1rem;
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
   border: 3px solid var(--border-color, #fff);
-  filter: drop-shadow(0px 0px 4px var(--border-color, #fff));
-  border-radius: 3px; transition: none;
+  border-radius: 3px;
+  box-shadow: 0 0 6px var(--border-color, #fff);
 }
+
 .top-left { top: -10px; left: -10px; border-right: none; border-bottom: none; }
 .top-right { top: -10px; right: -10px; border-left: none; border-bottom: none; }
 .bottom-left { bottom: -10px; left: -10px; border-right: none; border-top: none; }

@@ -8,7 +8,6 @@ type Props = {
   manualMode?: boolean;
   blurAmount?: number;
   borderColor?: string;
-  glowColor?: string;             // optional, not used by the CSS you pasted
   animationDuration?: number;
   pauseBetweenAnimations?: number;
 };
@@ -41,8 +40,10 @@ export default function TrueFocus({
     const el = wordRefs.current[currentIndex];
     const parent = containerRef.current;
     if (!el || !parent) return;
+
     const parentRect = parent.getBoundingClientRect();
     const rect = el.getBoundingClientRect();
+
     setFocusRect({
       x: rect.left - parentRect.left,
       y: rect.top - parentRect.top,
@@ -73,30 +74,31 @@ export default function TrueFocus({
           <span
             key={i}
             ref={(el: HTMLSpanElement | null) => {
-                if (el) {
-                  wordRefs.current[i] = el;
-                }
-              }}
-              className={`focus-word ${isActive && !manualMode ? "active" : ""} ${manualMode ? "manual" : ""}`}
-              style={{ filter: isActive ? "blur(0px)" : `blur(${blurAmount}px)` }}
-              onMouseEnter={() => onEnter(i)}
-              onMouseLeave={onLeave}
-            >
+              if (el) wordRefs.current[i] = el;
+            }}
+            className={`focus-word ${isActive && !manualMode ? "active" : ""} ${manualMode ? "manual" : ""}`}
+            style={{ filter: isActive ? "blur(0px)" : `blur(${blurAmount}px)` }}
+            onMouseEnter={() => onEnter(i)}
+            onMouseLeave={onLeave}
+          >
             {word}
           </span>
-                  
         );
       })}
+
+      {/* Animate only position; set size via style to avoid painty trails */}
       <motion.div
         className="focus-frame"
-        animate={{
-          x: focusRect.x,
-          y: focusRect.y,
+        initial={false}
+        animate={{ x: focusRect.x, y: focusRect.y, opacity: words.length ? 1 : 0 }}
+        transition={{ duration: animationDuration, ease: "easeOut" }}
+        style={{
           width: focusRect.width,
           height: focusRect.height,
-          opacity: words.length ? 1 : 0,
+          willChange: "transform, opacity",
+          transform: "translateZ(0)",
+          backfaceVisibility: "hidden",
         }}
-        transition={{ duration: animationDuration }}
       >
         <span className="corner top-left" />
         <span className="corner top-right" />
