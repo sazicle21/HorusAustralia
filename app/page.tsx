@@ -2,6 +2,7 @@
 "use client";
 
 import Beam from "@/components/Beam";
+import TrueFocus from '@/components/TextAnimations/TrueFocus';
 
 export default function Home() {
   return (
@@ -9,8 +10,8 @@ export default function Home() {
       {/* HERO (single column) */}
       <section id="hero" className="py-12 md:py-20">
         <div className="max-w-3xl">
-          <h1 className="text-4xl md:text-6xl font-semibold tracking-tight text-white">
-            Distribution, without drag.
+          <h1 className="text-balance leading-tight">
+          <TrueFocus sentence="Distribution, without drag." animationDuration={0.6} pauseBetweenAnimations={0.7} borderColor="#e58f32ff" />
           </h1>
           <p className="mt-5 max-w-xl text-white/70 text-base md:text-lg">
             Horus Australia sources, imports, and delivers critical goods—on time, with
