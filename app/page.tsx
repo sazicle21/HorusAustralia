@@ -1,7 +1,10 @@
 // app/page.tsx
 "use client";
-import SplineHero from "@/components/SplineHero";
+
 import Beam from "@/components/Beam";
+import HeroR3F from "@/components/HeroR3F"; // ⬅ new
+
+
 
 export default function Home() {
   return (
@@ -46,7 +49,7 @@ export default function Home() {
 
           {/* Spline embed — swap src with your Spline “Web embed” URL when you export it */}
           <div className="spline-shell">
-            <SplineHero />
+            <HeroR3F />
 
           
             {/* Reduced motion fallback (optional) — replace with a poster image in /public/assets */}
