@@ -119,3 +119,16 @@ html, body {
   height: 100%;
   display: block;
 }
+
+/* 1) Hard stop horizontal overflow everywhere */
+:root, html, body { overflow-x: clip !important; }
+#root, #__next, body > main, body > div { overflow-x: clip !important; }
+
+/* 2) If any element uses w-screen (includes scrollbar width), clamp it */
+.w-screen { width: 100% !important; }
+
+/* 3) Common culprits: prevent media from bleeding */
+img, video, svg { max-width: 100%; height: auto; display: block; }
+
+/* 4) Debug: temporarily show when something sticks out (toggle to 'visible' to see it) */
+html { overflow: clip; } /* keep hidden; change to 'visible' only while debugging */
